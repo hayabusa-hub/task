@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //　下記に追加すると「php artisan migrate:fresh --seed, php artisan db:seed」にてシードが作成される
+        $this->call(UsersTableSeeder::class);
+        $this->call(FoldersTableSeeder::class);
+        $this->call(TasksTableSeeder::class);
     }
 }

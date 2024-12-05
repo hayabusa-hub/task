@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /*
+    * ユーザークラスの関係性を辿ってフォルダークラスのリストを取得する
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function folders(){
+        return $this->hasMany('App\Models\Folder', 'user_id', 'id');
+    }
 }
